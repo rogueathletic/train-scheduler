@@ -1,0 +1,23 @@
+{
+  "name": "firebase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogueathletic/train-scheduler.git"
+  },
+  "keywords": [
+    "train",
+    "scheduler"
+  ],
+  "author": "jason schutz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rogueathletic/train-scheduler/issues"
+  },
+  "homepage": "https://github.com/rogueathletic/train-scheduler#readme"
+}

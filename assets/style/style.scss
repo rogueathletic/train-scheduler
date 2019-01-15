@@ -1,0 +1,242 @@
+
+/* fli clock start */
+@import url('https://fonts.googleapis.com/css?family=Oxygen');
+
+$font-color: #ededed;
+$body-color: #444;
+$clock-color: #D7BBA7;
+$clock-background: #222;
+$flip-background: #444;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all ease-in-out 200ms;
+}
+body {
+  background: $body-color;
+  display: flex;
+  justify-content: center;
+}
+.clock {
+  position: relative;
+  margin-top: 5%;
+  border-radius: 10px;
+  background: $clock-color;
+  height: 300px;
+  width: 900px;
+  min-width: 900px;
+  box-shadow: inset 2px 2px 5px darken($clock-color, 20%), 
+    inset -2px -2px 5px darken($clock-color, 20%);
+  h1 {
+    color: $font-color;
+    position: absolute;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 600;
+    font-size: 14em;
+  }
+  &::after {
+    content: '';
+    border-radius: inherit;
+    position: absolute;
+    background: $clock-background;
+    height: 96%;
+    width: 98.5%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  h4 {
+    color: $font-color;
+    position: absolute;
+    top: 20px;
+    left: 35px;
+    font-family: 'Oxygen', sans-serif;
+    z-index: 10;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+}
+// ========panel styling==========//
+[id*="top"],
+[id*="bottom"] {
+  overflow: hidden;
+  background: $flip-background;
+}
+[id*="-front"] {
+  backface-visibility: hidden;
+  padding-top: 43px;
+  overflow: hidden;
+  border-radius: 10px 10px 0px 0px;
+  position: absolute;
+  height: 43%;
+  width: 14.667%;
+  top: 28.1%;
+  z-index: 3;
+  transform: translate(0, -50%);
+  box-shadow: inset 0 -120px 130px #333, 
+    inset 0px 50px 30px rgba(255, 255, 255, .2);
+  h1 {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translate(-50%,0);
+  }
+}
+
+[id*="-back"],
+[id*="-bottom"] {
+  position: absolute;
+  width: 14.667%;
+  height: 42.8%;
+  transform: translate(0, -50%);
+  box-shadow: inset 0 -120px 130px #333, 
+    inset 0px 50px 30px rgba(255, 255, 255, .2);
+}
+[id*="-back"] {
+  border-radius: 0px 0px 10px 10px;
+  transform: rotateX(-180deg);
+  // backface-visibility: visible;
+  z-index: 2;
+  top: 6.5%;
+  h1 {
+    top: -147px;
+    left: 50%;
+    transform: translate(-50%,0);
+  }
+}
+//=====position of "bottom" panels=====//
+[id*="-bottom-top"] {
+  padding-top: 126px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 28%;
+  z-index: 1;
+  border-radius: 10px 10px 0px 0px;
+}
+//=====bottom half of bottom panels=====//
+[id*="-bottom-bottom"] {
+  z-index: 1;
+  top: 73.166665%;
+  border-radius: 0px 0px 10px 10px;
+  h1 {
+    top: -147px;
+    left: 50%;
+    transform: translate(-50%,0);
+  }
+}
+//=============position sets==================//
+[id*="hours-tens-top"],
+[id*="hours-tens-bottom"]  {
+  left: 3%;
+}
+
+[id*="hours-ones-top"],
+[id*="hours-ones-bottom"] {
+  left: 18%;
+}
+[id*="minutes-tens-top"],
+[id*="minutes-tens-bottom"] {
+  left: 35%;
+}
+[id*="minutes-ones-top"],
+[id*="minutes-ones-bottom"]  {
+  left: 50%;
+}
+[id*="seconds-tens-top"],
+[id*="seconds-tens-bottom"]  {
+  left: 67.4%;
+}
+[id*="seconds-ones-top"],
+[id*="seconds-ones-bottom"]  {
+  left: 82.4%;
+}
+//==========add animations=========//
+.animate-front {
+  -webkit-animation: flip-front ease-in-out 1s infinite forwards;
+
+}
+.animate-back {
+  -webkit-animation: flip-back ease-in-out 1s infinite forwards;
+ }
+//==========keyframes=========//
+@keyframes flip-front {
+  0% {
+    top: 10%;
+    transform: rotateX(0deg);
+    }
+  5% {
+    top: 15%;
+    transform: rotateX(-36deg);
+  }
+
+  10% {
+    top: 22%;
+    transform: rotateX(-72deg);
+  }
+
+  15% {
+    top: 35%;
+    transform: rotateX(-108deg);
+  }
+
+  20% {
+    top: 45%;
+    transform: rotateX(-144deg);
+  }
+
+  25% {
+    top: 51.55%;
+    transform: rotateX(-180deg);
+  }
+  26% {
+    top: 51.55%;
+    transform: rotateX(-180deg);
+  }
+  100% {
+    top: 51.55%;
+    transform: rotateX(-180deg);
+  }
+}
+@keyframes flip-back {
+  0% {
+    top: 10%;
+    transform: rotateX(-180deg);
+    }
+  5% {
+    top: 15%;
+    transform: rotateX(-144deg);
+  }
+
+  10% {
+    top: 22%;
+    transform: rotateX(-108deg);
+  }
+
+  15% {
+    top: 35%;
+    transform: rotateX(-72deg);
+  }
+
+  20% {
+    top: 45%;
+    transform: rotateX(-36deg);
+  }
+
+  25% {
+    top: 51.83333%;
+    transform: rotateX(0deg);
+  }
+  26% {
+    top: 51.83333%;
+    transform: rotateX(0deg);
+  }
+  100% {
+    top: 51.83333%;
+    transform: rotateX(0deg);
+  }
+}
+
+/* flip clock end */

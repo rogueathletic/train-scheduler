@@ -1,0 +1,208 @@
+/* clock start */
+#container{
+    margin-left: 30%;
+    z-index: 1010;
+    border-radius: 20vp;
+    text-align:center;
+}
+
+#title,
+.h1{
+    z-index: 1010;
+    text-align:center;
+    font-size: 40px;
+    justify-content: center;
+    flex: content;
+    
+}
+.flipclock hr {
+    position: absolute;
+    left: 0;
+    top: 65px;
+    width: 100%;
+    height: 3px;
+    border: 0;
+    background: #000;
+    z-index: 10;
+    opacity: 0;
+}
+ul.flip {
+    position: relative;
+    float: left;
+    margin: 10px;
+    padding: 0;
+    width: 180px;
+    height: 130px;
+    font-size: 120px;
+    font-weight: bold;
+    line-height: 127px;
+}
+
+ul.flip li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 49%;
+    height: 100%;
+    -webkit-perspective: 200px;
+    list-style: none;
+}
+
+ul.flip li.d1 {
+    float: right;
+}
+
+ul.flip li section {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+ul.flip li section:first-child {
+    z-index: 2;
+}
+
+ul.flip li div {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 49%;
+    overflow: hidden;
+}
+
+ul.flip li div .shadow {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+ul.flip li div.up {
+    -webkit-transform-origin: 50% 100%;
+    top: 0;
+}
+
+ul.flip li div.down {
+    -webkit-transform-origin: 50% 0%;
+    bottom: 0;
+}
+
+ul.flip li div div.inn {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 200%;
+    color: rgb(200, 248, 9);
+    text-shadow: 0 0 2px rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgb(78, 80, 34);
+    border-radius: 6px;
+}
+
+ul.flip li div.up div.inn {
+    top: 0;
+
+}
+
+ul.flip li div.down div.inn {
+    bottom: 0;
+}
+
+/*--------------------------------------
+ PLAY
+--------------------------------------*/
+
+body.play ul section.ready {
+    z-index: 3;
+}
+
+body.play ul section.active {
+    -webkit-animation: index .5s .5s linear both;
+    z-index: 2;
+}
+
+@-webkit-keyframes index {
+    0% {
+        z-index: 2;
+    }
+    5% {
+        z-index: 4;
+    }
+    100% {
+        z-index: 4;
+    }
+}
+
+body.play ul section.active .down {
+    z-index: 2;
+    -webkit-animation: flipdown .5s .5s linear both;
+}
+
+@-webkit-keyframes flipdown {
+    0% {
+        -webkit-transform: rotateX(90deg);
+    }  
+    80% {
+        -webkit-transform: rotateX(5deg);
+    } 
+    90% {
+        -webkit-transform: rotateX(15deg);
+    }
+    100% {
+        -webkit-transform: rotateX(0deg);
+    }
+}
+
+body.play ul section.ready .up {
+    z-index: 2;
+    -webkit-animation: flipup .5s linear both;
+}
+
+@-webkit-keyframes flipup {
+    0% {
+        -webkit-transform: rotateX(0deg);
+    }  
+    90% {
+        -webkit-transform: rotateX(0deg);
+    }
+    100% {
+        -webkit-transform: rotateX(-90deg);
+    }
+}
+
+
+
+@-webkit-keyframes show {
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: .10;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes hide {
+    0% {
+        opacity: 1;
+    }  
+    80% {
+        opacity: .20;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* clock end */
+
+
