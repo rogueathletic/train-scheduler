@@ -1,30 +1,139 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
+
 <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- link to CSS page -->
-    <link rel="stylesheet" type="text/css" href="./assets/style/style.css">
-    <!-- link to CSS page end -->
-    <title class="title"></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Train Schedule</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-       
-    <!-- Nav bar begin -->
-
- <div id="container">
-
-        
-
+    <div class="container" id="head-container">
+        <div class="jumbotron" id="head">
+            <h1 id='title-name'>Schutz Co. Train Co. </h1>
+            <h3 class='h3'>California Train schedule</h3>
         </div>
-        <h1 id="title"></h1>
-    <!-- Nav bar end -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" async></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous" async></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous" async></script>
-        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
-        <script src="./assets/javascript/app.js" async></script>
+    </div>
+
+    <div class="container">
+        <!-- Train Schedule Panel -->
+
+
+        <!-- Add Train Panel -->
+        <div class="panel panel-default" id='schedule-body'>
+            <div class="panel-heading panel-custom" id=add-train>
+                Add Train
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <!-- train name below -->
+                        <input type="text" for="trainName" class="form-control" id="train-name" placeholder='Engine Name'
+                            required>
+                    </div>
+                    <!-- tran destinatino below -->
+                    <div class="form-group">
+                        <input type="text" class="form-control" for="destination" id="train-destination" placeholder='destination'
+                            required>
+                    </div>
+
+                    <!-- frequency minutes below -->
+                    <div class="form-group">
+                        <input type="text" class="form-control" for="endYear" id="time-freq" placeholder='Frequency (minutes)'
+                            required>
+                    </div>
+                    <!-- first train arrival time below -->
+                    <div class="form-group">
+                        
+                        <input type="time" class="form-control" for="startYear" placeholder="HH:MM" id="train-time"
+                            required><label id='time-script'>First Train Time: (AM - or - PM) </label>
+                    </div>
+                    <!--submit button below -->
+                    <div class="btn-group" role="group"><i class="fa fa-plus"></i>
+                        <button type="button" id="btn-add" class="btn btn-secondary"><span class="glyphicon glyphicon-search"></span>
+                            Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end Add Train Panel -->
+            <!--  -->
+            <!--  -->
+            <!--  -->
+            <!--  -->
+            <div class="slide-toggle text-center">
+                <div class="container">
+                    <!-- fluid -->
+                    <div class="box-toggle">
+                        <div class="contorol">
+                            <h3 class='h3'>Click Here To Show entire train schedule</h3>
+                            <span class="toggle-info pull-left">
+                                
+                            </span>
+                        </div>
+                        <div class="content-box">
+                            <!--  -->
+                            <!--  -->
+                            <!--  -->
+                            <div class="panel panel-default" id='schedule-div'>
+                                <div class="panel-heading panel-custom">
+                                    Current Train Schedule
+                                </div>
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th scope="col">Train Name</th>
+                                        <th scope="col">Destination</th>
+                                        <th scope="col">Frequency (min)</th>
+                                        <th scrope="col">Minutes Away</th>
+                                        <th scope="col">Next Arrival</th>
+                                    </tr>
+                                    <tbody id="table-data"></tbody>
+                                </table>
+                                <hr />
+                                <!-- end Train Schedule Panel -->
+                            </div>
+                            <!--  -->
+                            <!--  -->
+                            </p>
+                        </div><p id='copyright'>© 2019 | Jason Schutz</p>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+            <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
