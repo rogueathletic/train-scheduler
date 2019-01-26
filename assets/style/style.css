@@ -11,7 +11,8 @@
     background-color: #052e38;
     color: white;
     padding: 2%;
-    border-top-right-radius: 70px;
+    border-top-right-radius: 7rem;
+    border-bottom-left-radius: 7rem;
 }
 #title-name{
 text-shadow: 0 1px 0 #ccc, 
@@ -52,8 +53,21 @@ td {
     background: linear-gradient(to right, white, silver, white);
     border-bottom-left-radius: 30px;
 }
-
-
+.click-show,
+.click-hide{
+    color: #afcaca;
+    
+}
+.click-show:hover,
+.click-hide:hover{
+color: white;
+cursor: grab;
+}
+.click-show:active,
+.click-hide:active{
+    color: white;
+        cursor: grabbing;
+    }
 #time-script{
     color: lightslategray;
     margin-left: 1em;
