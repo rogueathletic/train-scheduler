@@ -3,7 +3,7 @@
 
 # Firebase Assignment - Train Scheduler (Basic - Recommended)
 
-<img src="https://i.imgur.com/lFjpWxI.png" alt="schutz co train co scheduler" width="650" height="auto">
+<img src="https://i.imgur.com/lFjpWxI.png" alt="schutz co train co scheduler" width="1000" height="auto">
 
 ##### _Because that Rock Paper Scissors Game is Too Damn Hard_
 
