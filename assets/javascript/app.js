@@ -1,17 +1,16 @@
 $(document).ready(function () {
+ 
 	$(".content-box").hide();
 	$(".contorol").click(function () {
 		$(this).next(".content-box").slideToggle().siblings(".content-box").slideUp();
-		if ($("i").hasClass("fa-plus")) {
-			$(this).find("i").toggleClass("fa-minus");
-		
-		}
- 	});
+		if ($("i").hasClass("fa-remove")) {
+			$(this).find("i").toggleClass("fa-remove");
+          
+        }
+       
+     });
+     
 });
-
-
-
-
 
 
 var engineDestination = "";
@@ -23,16 +22,6 @@ var elengineDestination = $("#train-destination");
 var elTrainTime = $("#train-time").mask("00:00");
 var elTimeFreq = $("#time-freq").mask("00");
 var elTrain = $("#train-name");
-
-
-
-
-
-
-
-
-
-
 
 
 // Initialize Firebase
@@ -90,6 +79,7 @@ database.ref("/trains").on("child_added", function (snapshot) {
         "<td>" + frequency + "</td>" +
         "<td>" + minutesTillArrival + "</td>" +
         "<td>" + nextTrainTime + "  " + "<a><span class='glyphicon glyphicon-remove icon-hidden' aria-hidden='true'></span></a>" + "</td></tr>"
+        
     );
 
     $("span").hide();
@@ -108,7 +98,9 @@ database.ref("/trains").on("child_added", function (snapshot) {
         console.log(this);
         var trainRef = database.ref("/trains/");
         console.log(trainRef);
+  
     });
+    
 });
 
 // function to call the button event, and store the values in the input form
@@ -165,7 +157,7 @@ $('form').on("keypress", function (event) {
             storeInputs(event);
         }
     }
-    // add 0 to one digit minutes
+    // prepends a value space if number is < 10
     if (minutes < 10) {
         minutes = "0" + minutes
 
@@ -174,4 +166,8 @@ $('form').on("keypress", function (event) {
     if (hour == 0 || hour > 12) {
         hour = ((hour + 11) % 12 + 1); //allows to display ante meridiem time
     }
+    $('#dtBasicExample').DataTable();
+     $('.dataTables_length').addClass('bs-select');
+
+     
 });
