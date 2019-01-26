@@ -1,7 +1,7 @@
 # train-scheduler
 <a href="https://rogueathletic.github.io/train-scheduler/"></a>
 
-# Firebase Assignment - Train Scheduler (Basic - Recommended)
+# Firebase Assignment - Train Scheduler
 
 <a href="https://rogueathletic.github.io/train-scheduler/" alt="link to trainscheduler game">Click here ot play</a>
 
