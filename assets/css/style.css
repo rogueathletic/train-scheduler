@@ -1,0 +1,154 @@
+.body{
+
+}
+
+#head-container {
+    margin-top: 1%;
+}
+
+#head {
+    text-align: center;
+    background-color: #052e38;
+    color: white;
+    padding: 2%;
+    border-top-right-radius: 7rem;
+    border-bottom-left-radius: 7rem;
+}
+#title-name{
+text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+.h3{
+    color: #afcaca;
+  
+}
+table {
+    margin: 0 auto;
+}
+
+th {
+    margin: 1% 1% 0 1%;
+    padding: 3% 3% 0 3%;
+    width: 1%;
+}
+
+td {
+    margin: 1% 1% 0 1%;
+    padding: 3% 3% 0 3%;
+    width: 1%;
+}
+
+#schedule-body{
+    border: 0px;
+    background: linear-gradient(to right, white, silver, white);
+    border-bottom-left-radius: 30px;
+}
+.click-show,
+.click-hide{
+    color: #afcaca;
+    
+}
+.click-show:hover,
+.click-hide:hover{
+color: white;
+cursor: grab;
+}
+.click-show:active,
+.click-hide:active{
+    color: white;
+        cursor: grabbing;
+    }
+#time-script{
+    color: lightslategray;
+    margin-left: 1em;
+    overflow: hidden;
+}
+
+#schedule-div{
+ margin-left: 30px;
+ width: auto;
+ border-bottom-left-radius: 30px;
+ background-color: rgba(255, 255, 255, .4);
+ overflow: auto;
+}
+
+    #btn-add {
+        display: inline-block;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #052e38;
+        padding: 5px 50px;
+        font-size: 20px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        overflow:hidden;
+        border: 1px rgba(7, 44, 49, 0.082);
+        box-shadow: inset .15em .15em .5em rgb(211, 211, 211), .25em .25em .5em rgb(0, 0, 0);
+        
+    }
+    #btn-add:hover{
+        box-shadow: inset .15em .15em .25em rgb(211, 211, 211), .15em .15em .25em rgb(0, 0, 0);
+    }
+    #btn-add:active{
+        text-decoration: none;
+    }
+/* ++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++ */
+/* ++++++++++++++++++++++++++++++++++++++ */
+
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#add-train{
+    text-align: right;
+border-bottom-left-radius: 20px;
+padding-right:  10%;
+color: rgb(153, 150, 150);
+}
+.slide-toggle {
+	/* background: #afafaf; */
+    width: 100%;
+    border-bottom-left-radius: 60px;
+
+}
+
+.slide-toggle .box-toggle {
+    padding: 10px 0 39px;	
+    width: 97%;
+}
+
+.slide-toggle .box-toggle .contorol {
+	background: #052e38;
+    color: #fff;
+    overflow: hidden;
+
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.slide-toggle .box-toggle .contorol h3 {
+	float: left;
+	padding-left: 29px;
+}
+
+.slide-toggle .box-toggle .contorol span{
+	float: right !important;
+    padding-right: 29px;
+    line-height: 615px;
+}
+
