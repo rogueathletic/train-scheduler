@@ -3,12 +3,10 @@
 
 # Firebase Assignment - Train Scheduler (Basic - Recommended)
 
-<lnik href="https://rogueathletic.github.io/train-scheduler/">Click here ot play</link>
+<a href="https://rogueathletic.github.io/train-scheduler/" alt="link to trainscheduler game">Click here ot play</a>
+
 
 <a href="https://rogueathletic.github.io/train-scheduler/"><img src="https://i.imgur.com/lFjpWxI.png" style="width:82px; height:86px" title="White flower" alt="Flower"></a>
-
-
-
 
 
 ##### _Because that Rock Paper Scissors Game is Too Damn Hard_
