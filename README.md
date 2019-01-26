@@ -5,6 +5,13 @@
 
 <img src="https://i.imgur.com/lFjpWxI.png" alt="schutz co train co scheduler" width="1000" height="auto">
 
+
+<a href="../html-link.htm"><img src="https://i.imgur.com/lFjpWxI.png" style="width:82px; height:86px" title="White flower" alt="Flower"></a>
+
+
+
+
+
 ##### _Because that Rock Paper Scissors Game is Too Damn Hard_
 
 ### Overview
