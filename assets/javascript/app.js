@@ -47,7 +47,7 @@ database.ref("/trains").on("child_added", function (snapshot) {
 
     nextTrainTime = moment().add(minutesTillArrival, "m").format("hh:mm A");
 
-    $("#table-data").append(
+    $("#table-data").prepend(
         "<tr class='theRow'><td>"  + snapshot.val().name + "</td>" +
         "<td class='dest'>"        + snapshot.val().destination + "</td>" +
         "<td class='freq'>"        + frequency + "</td>" +
