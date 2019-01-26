@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Train Schedule</title>
     <meta name="description" content="">
-    <!-- <link rel="stylesheet" type="text/css" href="assets/style/reset.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./assets/style/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
@@ -89,10 +89,8 @@
                     <!-- fluid -->
                     <div class="box-toggle">
                         <div class="contorol">
-                            <h3 class='h3'>Click Here To Show entire train schedule</h3>
-                            <span class="toggle-info pull-left">
-                                
-                            </span>
+                            <div id="activate" class="open" >Click Here To Show schedule</div> 
+     
                         </div>
                         <div class="content-box">
                             <!--  -->
@@ -111,16 +109,18 @@
                                         <th scope="col">Next Arrival</th>
                                     </tr>
                                     <tbody id="table-data"></tbody>
+                                    
                                 </table>
+                               
                                 <hr />
+                                <div class="contorol"id="close-it">© 2019 | Jason Schutz</div>
                                 <!-- end Train Schedule Panel -->
                             </div>
                             <!--  -->
                             <!--  -->
                             </p>
-                        </div><p id='copyright'>© 2019 | Jason Schutz</p>
+                       
                     </div>
-
                 </div>
 
             </div>
