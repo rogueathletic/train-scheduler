@@ -35,18 +35,7 @@ database.ref("/trains").on("child_added", function (snapshot) {
     trains.push(snapshot.val());
     render();
 
-    // var a = [
-    //     { time: 0 },
-    //     { time: 5 },
-    //     { time: 2 }
-    //   ];
-    //   nextTrainTime
-    //   a.sort(function(a, b) {
-    //     if (a.time < b.time) return -1;
-    //     if (a.time > b.time) return 1;
-    //     return 0;
-    //   });
-    //   console.log(a);
+
 
 });
 
@@ -75,7 +64,7 @@ function render() {
     });
     for (let i = 0; i < trains.length; i++) {
         const train = trains[i];
-        $("#table-data").append(
+        $("#table-data").prepend(
             "<tr class='theRow'><td>"  + train.name + "</td>" +
             "<td class='dest'>"        + train.destination + "</td>" +
             "<td class='freq'>"        + train.frequency + "</td>" +
@@ -85,7 +74,7 @@ function render() {
         );
     }
     $( " .theRow" ).click( function(event){
-        $( this ).fadeOut().slow()
+        $( this ).hide().slow()
         console.log()
     });
 }
@@ -141,15 +130,9 @@ $('form').on("keyup", function (event) {
         }
     }
    
-    if     ( minutes < 10 ) {
-            minutes = "0" + minutes
 
-    };
-    if ( hour == 0 || hour > 12 ) {
-        hour = (( hour + 11 ) % 12 + 1 ); 
-    }
+
      $( '#dtBasicExample' ).DataTable();
      $( '.dataTables_length' ).addClass( 'bs-select' );
 });
-
 
