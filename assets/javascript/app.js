@@ -8,7 +8,7 @@
     messagingSenderId: "1093361277513"
   };
 firebase.initializeApp(config);
-
+var trains = [];
 $(document).ready(function () {
  
 	$(".content-box").hide();
@@ -32,36 +32,63 @@ $(document).ready(function () {
 
     var database = firebase.database();
 database.ref("/trains").on("child_added", function (snapshot) {
-    
-    var trainDiff = 0;
-    var trainRemainder = 0;
-    var minutesTillArrival = "";
-    var nextTrainTime = "";
-    var frequency = snapshot.val().frequency;
+    trains.push(snapshot.val());
+    render();
 
-    trainDiff = moment().diff(moment.unix(snapshot.val().time), "minutes");
-
-    trainRemainder = trainDiff % frequency;
-
-    minutesTillArrival = frequency - trainRemainder;
-
-    nextTrainTime = moment().add(minutesTillArrival, "m").format("hh:mm A");
-
-    $("#table-data").prepend(
-        "<tr class='theRow'><td>"  + snapshot.val().name + "</td>" +
-        "<td class='dest'>"        + snapshot.val().destination + "</td>" +
-        "<td class='freq'>"        + frequency + "</td>" +
-        "<td class='minTill'>"     + minutesTillArrival + "</td>" +
-        "<td class='nextTrain'>"   + nextTrainTime + "  " + "<a><span class='glyphicon glyphicon-remove icon-hidden' aria-hidden='true' id='exitX'></span></a>"    + "</td></tr>"
-        
-    );
-
-    $( " .theRow" ).click( function(event){
-    $( this ).fadeOut().slow()
-                 console.log()
-           });
+    // var a = [
+    //     { time: 0 },
+    //     { time: 5 },
+    //     { time: 2 }
+    //   ];
+    //   nextTrainTime
+    //   a.sort(function(a, b) {
+    //     if (a.time < b.time) return -1;
+    //     if (a.time > b.time) return 1;
+    //     return 0;
+    //   });
+    //   console.log(a);
 
 });
+
+function render() {
+    $('#table-data').empty();
+    for (let i = 0; i < trains.length; i++) {
+        const train = trains[i];
+        var trainDiff = 0;
+        var trainRemainder = 0;
+        var frequency = train.frequency;
+
+        trainDiff = moment().diff(moment.unix(train.time), "minutes");
+
+        trainRemainder = trainDiff % frequency;
+
+        train.minutesTillArrival = frequency - trainRemainder;
+
+        train.nextTrainTime = moment().add(train.minutesTillArrival, "m").format("hh:mm A");
+    }   
+    trains.sort(function(a, b) {
+        var trainATime = a.nextTrainTime.valueOf();
+        var trainBTime = b.nextTrainTime.valueOf();
+        if (trainATime < trainBTime) return -1;
+        if (trainATime > trainBTime) return 1;
+        return 0;
+    });
+    for (let i = 0; i < trains.length; i++) {
+        const train = trains[i];
+        $("#table-data").append(
+            "<tr class='theRow'><td>"  + train.name + "</td>" +
+            "<td class='dest'>"        + train.destination + "</td>" +
+            "<td class='freq'>"        + train.frequency + "</td>" +
+            "<td class='minTill'>"     + train.minutesTillArrival + "</td>" +
+            "<td class='nextTrain'>"   + train.nextTrainTime + "  " + "<a><span class='glyphicon glyphicon-remove icon-hidden' aria-hidden='true' id='exitX'></span></a>"    + "</td></tr>"
+            
+        );
+    }
+    $( " .theRow" ).click( function(event){
+        $( this ).fadeOut().slow()
+        console.log()
+    });
+}
 
     var storeInputs = function (event) {
   
@@ -72,15 +99,17 @@ database.ref("/trains").on("child_added", function (snapshot) {
         trainTime = moment(elTrainTime.val().trim(), "HH:mm").subtract(1, "years").format("X");
         arrivalFrequency = elTimeFreq.val().trim();
 
-    database.ref( "/trains" ).push({
-        name: trainName,
-        destination: engineDestination,
-        time: trainTime,
-        frequency: arrivalFrequency,
-        nextArrival: nextArrival,
-        minutesAway: minutesAway,
-        date_added: firebase.database.ServerValue.TIMESTAMP
-    });
+        var trainObj = {
+            name: trainName,
+            destination: engineDestination,
+            time: trainTime,
+            frequency: arrivalFrequency,
+            nextArrival: nextArrival,
+            minutesAway: minutesAway,
+            date_added: firebase.database.ServerValue.TIMESTAMP
+        };
+        trains.push(trainObj);
+        database.ref( "/trains" ).push();
 
         alert( "All Aboard!" );
 
@@ -113,7 +142,7 @@ $('form').on("keyup", function (event) {
     }
    
     if     ( minutes < 10 ) {
-             minutes = "0" + minutes
+            minutes = "0" + minutes
 
     };
     if ( hour == 0 || hour > 12 ) {
