@@ -1,5 +1,5 @@
 
-  var config = {
+var config = {
     apiKey: "AIzaSyDuyThKpM3Rx2-4pGLlnVv4fSRCZaMOdb4",
     authDomain: "train-co.firebaseapp.com",
     databaseURL: "https://train-co.firebaseio.com",
@@ -7,7 +7,7 @@
     storageBucket: "train-co.appspot.com",
     messagingSenderId: "1093361277513"
   };
-firebase.initializeApp(config);
+   firebase.initializeApp(config);
 var trains = [];
 $(document).ready(function () {
  
@@ -31,8 +31,8 @@ $(document).ready(function () {
     var elTrain             = $( "#train-name" );
 
     var database = firebase.database();
-database.ref("/trains").on("child_added", function (snapshot) {
-    trains.push(snapshot.val());
+        database.ref("/trains").on("child_added", function (snapshot) {
+        trains.push(snapshot.val());
     render();
 
 
@@ -47,13 +47,13 @@ function render() {
         var trainRemainder = 0;
         var frequency = train.frequency;
 
-        trainDiff = moment().diff(moment.unix(train.time), "minutes");
+            trainDiff = moment().diff(moment.unix(train.time), "minutes");
 
-        trainRemainder = trainDiff % frequency;
+            trainRemainder = trainDiff % frequency;
 
-        train.minutesTillArrival = frequency - trainRemainder;
+            train.minutesTillArrival = frequency - trainRemainder;
 
-        train.nextTrainTime = moment().add(train.minutesTillArrival, "m").format("hh:mm A");
+            train.nextTrainTime = moment().add(train.minutesTillArrival, "m").format("hh:mm A");
     }   
     trains.sort(function(a, b) {
         var trainATime = a.nextTrainTime.valueOf();
@@ -81,12 +81,11 @@ function render() {
 
     var storeInputs = function (event) {
   
-        event.preventDefault();
-
-        trainName = elTrain.val().trim();
-        engineDestination = elengineDestination.val().trim();
-        trainTime = moment(elTrainTime.val().trim(), "HH:mm").subtract(1, "years").format("X");
-        arrivalFrequency = elTimeFreq.val().trim();
+             event.preventDefault();
+             trainName = elTrain.val().trim();
+             engineDestination = elengineDestination.val().trim();
+             trainTime = moment(elTrainTime.val().trim(), "HH:mm").subtract(1, "years").format("X");
+             arrivalFrequency = elTimeFreq.val().trim();
 
         var trainObj = {
             name: trainName,
@@ -97,15 +96,15 @@ function render() {
             minutesAway: minutesAway,
             date_added: firebase.database.ServerValue.TIMESTAMP
         };
-        trains.push(trainObj);
-        database.ref( "/trains" ).push();
+             trains.push(trainObj);
+            database.ref( "/trains" ).push();
 
         alert( "All Aboard!" );
 
-        elTrain.val( "" );
-        elengineDestination.val( "" );
-        elTrainTime.val(  "" );
-        elTimeFreq.val( "" );
+            elTrain.val( "" );
+            elengineDestination.val( "" );
+            elTrainTime.val(  "" );
+            elTimeFreq.val( "" );
 };
 
 $( "#btn-add" ).on( "click", function (event) {
