@@ -34,22 +34,6 @@
   var elTimeFreq = $("#time-freq").mask("00");
   var elTrain = $("#train-name");
 
-
-
-
-
-
-
-
-  // ++++++++++++++++++++++++++
-
-
-
-
-  // ++++++++++++++++++++++++++
-
-
-
   // Assign the reference to the database to a variable named 'database'
   var database = firebase.database();
 
@@ -75,7 +59,7 @@
       nextTrainTime = moment().add(minutesTillArrival, "m").format("hh:mm A");
 
       // append to our table of trains, inside tbody, with a new row of the train data
-      $("#table-data").append(
+      $("#table-data").prepend(
           "<tr><td>" + snapshot.val().name + "</td>" +
           "<td>" + snapshot.val().destination + "</td>" +
           "<td>" + frequency + "</td>" +
