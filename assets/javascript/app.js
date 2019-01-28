@@ -1,5 +1,8 @@
-  // Initialize Firebase
+
+alert("API key has been removed. It can be found wihtin the project submission comments and is available upon request.")
+// Initialize Firebase
   var config = {
+    //this content has been removed for personal security. for review use, the api key is stored as a comment with the links submission. 
       apiKey: "###########",
       authDomain: "###########",
       databaseURL: "###########",
